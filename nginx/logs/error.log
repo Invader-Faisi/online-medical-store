@@ -1,0 +1,10 @@
+2025/12/26 18:09:02 [emerg] 16832#16372: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2025/12/26 18:11:09 [emerg] 14600#10644: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2025/12/26 18:13:32 [emerg] 12412#8972: "server" directive is not allowed here in D:\Projects\online-medical-store\nginx/conf/nginx.conf:1
+2025/12/26 18:14:40 [emerg] 16600#10088: no "events" section in configuration
+2025/12/26 18:16:52 [error] 16884#1432: *1 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2025/12/26 18:16:53 [error] 16884#1432: *2 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2025/12/26 18:17:24 [error] 16884#1432: *3 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2025/12/26 18:17:24 [error] 16884#1432: *4 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2025/12/26 18:25:38 [notice] 5584#4680: signal process started
+2025/12/26 19:57:30 [notice] 7208#6228: signal process started

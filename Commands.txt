@@ -1,0 +1,6 @@
+Backend : npm run dev
+Frontend : npm start
+
+Before starting Nginx : npm run build
+Stop Nginx : .\nginx.exe -s stop
+Run Nginx : .\nginx.exe

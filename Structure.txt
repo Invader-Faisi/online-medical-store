@@ -1,0 +1,190 @@
+online-medical-store/
+│
+├── frontend/                 # React.js Application
+│
+├── backend/                  # PHP REST API
+│
+├── database/                 # Database scripts & backups
+│
+├── storage/                  # Uploaded prescriptions & invoices
+│
+├── docs/                     # Project documentation
+│
+└── nginx/                    # Nginx configuration
+
+
+frontend/
+│
+├── public/
+│   └── index.html
+│
+├── src/
+│   ├── assets/               # Images, icons
+│   ├── components/           # Reusable UI components
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── MedicineCard.jsx
+│   │   ├── ProtectedRoute.jsx
+│   │   └── Loader.jsx
+│   │
+│   ├── pages/                # Main screens/pages
+│   │   ├── Auth/
+│   │   │   ├── Login.jsx
+│   │   │   └── Register.jsx
+│   │   │
+│   │   ├── User/
+│   │   │   ├── Dashboard.jsx  # Main dashboard page
+│   │   │   ├── Profile.jsx    # Update name, email, phone, password
+│   │   │   ├── Cart.jsx       # Shopping cart & checkout
+│   │   │   ├── Orders.jsx     # User order history
+│   │   │   └── PrescriptionUpload.jsx # Upload prescriptions
+│   │   │   └── Medicines.jsx           # Browse medicines by category
+│   │   │   └── MedicineDetails.jsx     # Dosage, side-effects, interactions
+│   │   │
+│   │   ├── Admin/
+│   │   │   ├── AdminDashboard.jsx
+│   │   │   ├── ManageMedicines.jsx
+│   │   │   ├── ManageOrders.jsx
+│   │   │   ├── VerifyPrescriptions.jsx
+│   │   │   └── Reports.jsx
+│   │   │
+│   │   └── Medicines/
+│   │       ├── MedicineList.jsx
+│   │       └── MedicineDetails.jsx
+│   │
+│   ├── services/             # API calls
+│   │   ├── api.js
+│   │   ├── authService.js
+│   │   ├── medicineService.js
+│   │   ├── orderService.js
+│   │   └── prescriptionService.js
+│   │
+│   ├── context/              # Global state (Auth, Cart)
+│   │   ├── AuthContext.jsx
+│   │   └── CartContext.jsx
+│   │
+│   ├── utils/                # Helpers
+│   │   ├── jwtHelper.js
+│   │   └── validation.js
+│   │
+│   ├── App.js
+│   └── index.js
+│
+└── package.json
+
+backend/
+├── src/
+│   ├── config/
+│   │   ├── db.js
+│   │   └── jwt.js
+│   ├── controllers/
+│   │   ├── auth.controller.js
+│   │   ├── user.controller.js
+│   │   └── medicine.controller.js
+│   ├── routes/
+│   │   ├── auth.routes.js
+│   │   ├── user.routes.js
+│   │   └── medicine.routes.js
+│   ├── middleware/
+│   │   ├── auth.middleware.js
+│   │   └── role.middleware.js
+│   └── app.js
+│
+├── server.js
+├── .env
+└── package.json
+
+
+
+backend/
+│
+├── config/
+│   ├── database.php          # MySQL connection
+│   ├── jwt.php               # JWT secret & config
+│   └── constants.php
+│
+├── middleware/
+│   ├── AuthMiddleware.php    # JWT validation
+│   ├── RoleMiddleware.php    # Admin/User access control
+│   └── UploadMiddleware.php
+│
+├── models/
+│   ├── User.php
+│   ├── Medicine.php
+│   ├── Category.php
+│   ├── Prescription.php
+│   ├── Order.php
+│   ├── OrderItem.php
+│   └── Payment.php
+│
+├── controllers/
+│   ├── AuthController.php
+│   ├── UserController.php
+│   ├── MedicineController.php
+│   ├── PrescriptionController.php
+│   ├── CartController.php
+│   ├── OrderController.php
+│   ├── PaymentController.php
+│   └── ReportController.php
+│
+├── routes/
+│   ├── auth.php
+│   ├── users.php
+│   ├── medicines.php
+│   ├── prescriptions.php
+│   ├── orders.php
+│   ├── payments.php
+│   └── reports.php
+│
+├── helpers/
+│   ├── Response.php
+│   ├── Validator.php
+│   └── FileUpload.php
+│
+├── public/
+│   └── index.php             # Entry point
+│
+├── vendor/                   # Composer dependencies
+│
+└── .env
+
+database/
+│
+├── migrations/
+│   ├── users.sql
+│   ├── medicines.sql
+│   ├── categories.sql
+│   ├── prescriptions.sql
+│   ├── orders.sql
+│   ├── order_items.sql
+│   └── payments.sql
+│
+└── seeders/
+    ├── categories_seed.sql
+    └── medicines_seed.sql
+
+
+storage/
+│
+├── prescriptions/
+│   ├── user_1/
+│   ├── user_2/
+│
+├── invoices/
+│   └── order_*.pdf
+│
+└── receipts/
+
+nginx/
+│
+└── medical-store.conf
+
+Implementation of modules one by one in this order:
+
+1️⃣ Authentication & User Management
+2️⃣ Medicine & Category Management
+3️⃣ Prescription Upload & Verification
+4️⃣ Cart & Order Processing
+5️⃣ Payment Integration
+6️⃣ Admin Dashboard & Reports
+7️⃣ Dosage & Interaction Alerts

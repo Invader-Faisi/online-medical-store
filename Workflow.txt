@@ -1,0 +1,68 @@
+Online Medical Store - Local Architecture
+
+1. React Frontend
+   - Location: D:/Projects/online-medical-store/frontend
+   - Components:
+     - LandingPage.jsx
+     - Auth (Login.jsx, Register.jsx)
+     - Dashboard
+     - Medicine, Cart, Orders
+   - Build output: frontend/build
+   - Access via: http://localhost:8080 (served by Nginx)
+
+2. Node.js Backend (Express.js)
+   - Location: D:/Projects/online-medical-store/backend
+   - Port: 5000
+   - Routes:
+     - /api/auth         -> login, register, JWT token generation
+     - /api/medicines    -> CRUD medicines
+     - /api/orders       -> cart & order processing
+     - /api/prescriptions-> upload & verify prescriptions
+   - Database connection: MySQL (online_medical_store)
+   - Authentication: JWT stored in localStorage
+
+3. MySQL Database
+   - Location: via XAMPP or standalone MySQL
+   - Port: 3306
+   - Database: online_medical_store
+   - Tables:
+     - users (id, name, email, phone, password, role)
+     - medicines (id, name, category, price, stock, expiry_date)
+     - orders (id, user_id, total, status, created_at)
+     - prescriptions (id, user_id, file_path, status)
+     - categories (id, name)
+   - Access via: http://localhost/phpmyadmin
+
+4. Nginx Web Server
+   - Location: D:/Projects/online-medical-store/nginx
+   - Config: nginx/conf/nginx.conf
+   - Local port: 8080 (to avoid XAMPP conflict)
+   - Responsibilities:
+     - Serve React frontend static files from frontend/build
+     - Reverse proxy all `/api/*` requests to Node.js backend on port 5000
+     - Optional: SSL, caching, load balancing (production)
+
+5. Workflow
+   5.1 Frontend:
+       - User opens http://localhost:8080
+       - React app served by Nginx
+       - User actions trigger API calls to `/api/...`
+   5.2 Backend:
+       - Node.js handles API requests
+       - Queries MySQL database
+       - Returns JSON response
+       - JWT tokens are generated for authentication
+   5.3 Nginx:
+       - Serves React build
+       - Forwards /api requests to Node.js
+       - Listens on port 8080
+   5.4 Database:
+       - Stores all persistent data
+       - Accessible by Node.js backend only
+
+6. Notes:
+   - XAMPP Apache must be stopped or Nginx must use a different port
+   - React build must exist before starting Nginx
+   - Node.js backend must be running to handle API requests
+   - JWT tokens are stored in localStorage for session management
+
